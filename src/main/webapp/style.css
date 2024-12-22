@@ -1,0 +1,156 @@
+/* Body and Video Styling */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers content vertically */
+  overflow: hidden; /* Prevent scrolling */
+  position: relative;
+}
+
+/* Full-screen background video */
+#background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Keeps the video behind other content */
+}
+
+/* General Container Styling */
+.center-container {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  position: relative;
+  z-index: 1; /* Keeps content on top of the video */
+  margin: 0 auto;
+  width: 80%; /* Responsive width */
+  max-width: 500px; /* Maximum width for large screens */
+}
+
+/* Heading Styles */
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+/* Main Title Styling */
+h1.text-primary {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+/* Player Name Input Styling */
+input#player-name {
+  padding: 10px;
+  font-size: 16px;
+  width: 60%;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Hidden class for elements not shown */
+.hidden {
+  display: none;
+}
+
+/* Button Styling */
+button {
+  background-color: #0078D7;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px;
+  width: 70%;
+}
+
+button:hover {
+  background-color: #005fa3;
+}
+
+button:focus {
+  outline: none;
+}
+
+/* Custom Styles for Back Buttons */
+button#back-to-main,
+button#back-to-main2,
+button#back-to-main3 {
+  background-color: #f39c12;
+  margin-top: 20px;
+}
+
+button#back-to-main:hover,
+button#back-to-main2:hover,
+button#back-to-main3:hover {
+  background-color: #e67e22;
+}
+
+/* Additional Button Styling */
+button.mt-3 {
+  margin-top: 20px;
+}
+
+/* Container for Player Info Page */
+#player-info-page {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+#player-info-page p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-align: left; /* Aligns text for better readability */
+}
+
+/* Text Styling for Player Info */
+#info-name, #info-id, #info-score, #info-level {
+  font-weight: bold;
+  color: #fff; /* Ensures text is visible on the dark background */
+}
+
+/* Main Button Group */
+.text-center {
+  margin-top: 20px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  button {
+      width: 80%;
+  }
+
+  input#player-name {
+      width: 80%;
+  }
+
+  #player-info-page {
+      padding: 15px;
+  }
+}
+
+/* Player Registration Form */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input#player-name {
+  text-align: center; /* Centers placeholder and input text */
+}
