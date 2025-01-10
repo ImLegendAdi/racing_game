@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Invaders</title>
+    <title>Nitro Racing</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="bootstrap.css">
     <!-- Custom CSS -->
@@ -12,7 +11,7 @@
 </head>
 <body>
     <!-- Background Video -->
-    <video autoplay muted loop id="background-video" aria-hidden="true">
+    <video autoplay muted loop id="background-video">
         <source src="car.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -28,11 +27,9 @@
 
     <div id="player-registration" class="center-container hidden">
         <h2>Enter Player Name</h2>
-        <form action="RegisterPlayerServlet" method="POST">
-            <input type="text" name="playerName" id="player-name" placeholder="Your Name" class="form-control w-50 mx-auto">
-            <button type="submit" id="register-player" class="btn btn-success mt-3">Register</button>
-            <button type="button" id="back-to-main" class="btn btn-warning mt-3">Back</button>
-        </form>
+        <input type="text" id="player-name" placeholder="Your Name" class="form-control w-50 mx-auto">
+        <button id="register-player" class="btn btn-success mt-3">Register</button>
+        <button id="back-to-main" class="btn btn-warning mt-3">Back</button>
     </div>
 
     <div id="returning-player" class="center-container hidden">
@@ -46,10 +43,10 @@
 
     <div id="player-info-page" class="center-container hidden">
         <h2>Player Information</h2>
-        <p><strong>Player Name:</strong> <span id="info-name"><%= request.getAttribute("playerName") %></span></p>
-        <p><strong>Player ID:</strong> <span id="info-id"><%= request.getAttribute("playerId") %></span></p>
-        <p><strong>Score:</strong> <span id="info-score"><%= request.getAttribute("playerScore") != null ? request.getAttribute("playerScore") : "0" %></span></p>
-        <p><strong>Level:</strong> <span id="info-level"><%= request.getAttribute("playerLevel") != null ? request.getAttribute("playerLevel") : "1" %></span></p>
+        <p><strong>Player Name:</strong> <span id="info-name"></span></p>
+        <p><strong>Player ID:</strong> <span id="info-id"></span></p>
+        <p><strong>Score:</strong> <span id="info-score">0</span></p>
+        <p><strong>Level:</strong> <span id="info-level">1</span></p>
         <button id="back-to-main3" class="btn btn-warning">Back</button>
     </div>
 

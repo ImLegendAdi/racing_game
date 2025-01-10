@@ -145,4 +145,51 @@ public class playerDAO {
 		
 		return status;
 		}
-	}
+	public List<player> selectAllPlayers() {
+        List<player> players = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_PLAYERS);
+             ResultSet rs = preparedStatement.executeQuery()) {
+            while (rs.next()) {
+                int playerId = rs.getInt("player_id");
+                String playerName = rs.getString("player_name");
+                int score = rs.getInt("score");
+                int level = rs.getInt("level");
+                players.add(new player(playerId, playerName, score, level));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return players;
+    }
+
+    public boolean deletePlayer(int playerId) {
+        boolean status = false;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_PLAYER_SQL)) {
+            preparedStatement.setInt(1, playerId);
+            status = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+
+    public boolean updatePlayer(player player) {
+        boolean status = false;
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_PLAYER_SQL)) {
+            preparedStatement.setString(1, player.getPlayer_name());
+            preparedStatement.setInt(2, player.getScore());
+            preparedStatement.setInt(3, player.getLevel());
+      
+            preparedStatement.setInt(5, player.getPlayer_id());
+            status = preparedStatement.executeUpdate() > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return status;
+    }
+}
+
+

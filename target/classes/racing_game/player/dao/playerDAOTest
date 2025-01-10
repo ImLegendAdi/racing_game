@@ -1,0 +1,66 @@
+import com.player.model.player;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+
+
+import java.util.List;
+
+public class PlayerDAOTest {
+
+    private playerDAO playerDAO;
+
+    // This method will run before each test to set up the DAO instance
+    @BeforeEach
+    public void setUp() {
+        // Create a new instance of PlayerDAO before each test
+        playerDAO = new playerDAO();
+    }
+
+    // Test for selecting all players
+    @Test
+    public void testSelectAllPlayers() {
+        List<player> players = playerDAO.selectAllPlayers();
+        assertNotNull(players, "Player list should not be null");
+        assertTrue(players.size() > 0, "Player list should not be empty");
+    }
+
+    // Test for inserting a player
+    @Test
+    public void testInsertPlayer() {
+        player newPlayer = new player();  // Sample player
+        playerDAO.insertPlayer(newPlayer);
+
+        // Verify if the player has been inserted (you can query the list of players)
+        List<player> players = playerDAO.selectAllPlayers();
+        assertTrue(players.stream().anyMatch(p -> p.getPlayer_name().equals("John Doe")));
+    }
+
+    // Test for updating a player's score
+    @Test
+    public void testUpdatePlayer() {
+        player player = new player();  // Create a new player
+        playerDAO.insertPlayer(player);  // Insert player first
+        player.setScore(700);  // Update score
+        playerDAO.updatePlayer(player);  // Update in DAO
+
+        // Verify if the player's score has been updated
+        player updatedPlayer = playerDAO.selectPlayer(player.getPlayer_id());
+        assertEquals(700, updatedPlayer.getScore(), "Player score should be updated to 700");
+    }
+
+    // Test for deleting a player
+    @Test
+    public void testDeletePlayer() {
+        player playerToDelete = new player();
+        playerDAO.insertPlayer(playerToDelete);  // Insert player
+        playerDAO.deletePlayer(playerToDelete.getPlayer_id());  // Delete player
+
+        // Verify if the player is deleted
+        List<player> players = playerDAO.selectAllPlayers();
+        assertFalse(players.stream().anyMatch(p -> p.getPlayer_name().equals("Delete Me")));
+    }
+
+    // Add more tests for other methods if needed (like selecting a player by ID, etc.)
+}

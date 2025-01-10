@@ -48,7 +48,7 @@ h1.text-primary {
 }
 
 /* Player Name Input Styling */
-input#player-name {
+input {
   padding: 10px;
   font-size: 16px;
   width: 60%;
@@ -86,7 +86,7 @@ button:focus {
   outline: none;
 }
 
-/* Custom Styles for Back Buttons */
+/* Custom Styles for Back Button */
 button#back-to-main,
 button#back-to-main2,
 button#back-to-main3 {
@@ -115,13 +115,16 @@ button.mt-3 {
 #player-info-page p {
   font-size: 1.2rem;
   margin: 10px 0;
-  text-align: left; /* Aligns text for better readability */
 }
 
 /* Text Styling for Player Info */
 #info-name, #info-id, #info-score, #info-level {
   font-weight: bold;
-  color: #fff; /* Ensures text is visible on the dark background */
+}
+
+/* Centering of Player Info Text */
+#player-info-page p {
+  text-align: left;
 }
 
 /* Main Button Group */
@@ -129,28 +132,17 @@ button.mt-3 {
   margin-top: 20px;
 }
 
-/* Responsive Adjustments */
+/* Responsive Button Sizes */
 @media (max-width: 768px) {
   button {
       width: 80%;
   }
 
-  input#player-name {
+  input {
       width: 80%;
   }
 
   #player-info-page {
       padding: 15px;
   }
-}
-
-/* Player Registration Form */
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-form input#player-name {
-  text-align: center; /* Centers placeholder and input text */
 }

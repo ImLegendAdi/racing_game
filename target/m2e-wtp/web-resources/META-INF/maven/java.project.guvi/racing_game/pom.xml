@@ -34,6 +34,44 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<version>9.1.0</version>
 		</dependency>
+		
+		<dependency>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        
+        
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        
+        
+        
+         <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.7.1</version> <!-- Use appropriate version -->
+            <scope>test</scope>
+       </dependency>
+
+    <!-- H2 Database for Testing -->
+        <dependency>
+           <groupId>com.h2database</groupId>
+           <artifactId>h2</artifactId>
+           <version>1.4.200</version>
+           <scope>test</scope>
+        </dependency>
+       
+       
+        <dependency>
+           <groupId>org.junit.jupiter</groupId>
+           <artifactId>junit-jupiter-engine</artifactId>
+           <version>5.7.2</version>  <!-- You can use a more recent version -->
+           <scope>test</scope>
+        </dependency>
 
 	</dependencies>
 

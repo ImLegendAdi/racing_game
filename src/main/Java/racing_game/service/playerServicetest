@@ -1,0 +1,22 @@
+package com.player.service;
+
+import com.player.dao.playerDAO;
+import com.player.model.player;
+
+public class playerServicetest {
+
+    private playerDAO playerDAO;
+
+    public playerServicetest() {
+        playerDAO = new playerDAO(); // Assuming DAO is initialized here
+    }
+
+    public player getPlayerById(int id) {
+        return playerDAO.selectPlayer(id);
+    }
+
+    public void addPlayer(player player) {
+           }
+
+    
+}
